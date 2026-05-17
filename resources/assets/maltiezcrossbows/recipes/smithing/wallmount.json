@@ -1,0 +1,142 @@
+[
+  {
+    "ingredient": {
+      "type": "item",
+      "code": "game:ingot-iron"
+    },
+    "pattern": [
+      [
+        "_______",
+        "_######",
+        "_______",
+        "_######",
+        "_______"
+      ],
+      [
+        "_______",
+        "______#",
+        "_______",
+        "______#",
+        "_______"
+      ]
+    ],
+    "name": "Wallmount",
+    "output": {
+      "type": "block",
+      "code": "maltiezcrossbows:wallmount-iron-east"
+    },
+    "code": "crossbows-wallmount-0-maltiezcrossbows-wallmount--metal--east"
+  },
+  {
+    "ingredient": {
+      "type": "item",
+      "code": "game:ingot-tinbronze"
+    },
+    "pattern": [
+      [
+        "_______",
+        "_######",
+        "_______",
+        "_######",
+        "_______"
+      ],
+      [
+        "_______",
+        "______#",
+        "_______",
+        "______#",
+        "_______"
+      ]
+    ],
+    "name": "Wallmount",
+    "output": {
+      "type": "block",
+      "code": "maltiezcrossbows:wallmount-tinbronze-east"
+    },
+    "code": "crossbows-wallmount-0-maltiezcrossbows-wallmount--metal--east"
+  },
+  {
+    "ingredient": {
+      "type": "item",
+      "code": "game:ingot-copper"
+    },
+    "pattern": [
+      [
+        "_______",
+        "_######",
+        "_______",
+        "_######",
+        "_______"
+      ],
+      [
+        "_______",
+        "______#",
+        "_______",
+        "______#",
+        "_______"
+      ]
+    ],
+    "name": "Wallmount",
+    "output": {
+      "type": "block",
+      "code": "maltiezcrossbows:wallmount-copper-east"
+    },
+    "code": "crossbows-wallmount-0-maltiezcrossbows-wallmount--metal--east"
+  },
+  {
+    "ingredient": {
+      "type": "item",
+      "code": "game:ingot-steel"
+    },
+    "pattern": [
+      [
+        "_______",
+        "_######",
+        "_______",
+        "_######",
+        "_______"
+      ],
+      [
+        "_______",
+        "______#",
+        "_______",
+        "______#",
+        "_______"
+      ]
+    ],
+    "name": "Wallmount",
+    "output": {
+      "type": "block",
+      "code": "maltiezcrossbows:wallmount-steel-east"
+    },
+    "code": "crossbows-wallmount-0-maltiezcrossbows-wallmount--metal--east"
+  },
+  {
+    "ingredient": {
+      "type": "item",
+      "code": "game:ingot-brass"
+    },
+    "pattern": [
+      [
+        "_______",
+        "_######",
+        "_______",
+        "_######",
+        "_______"
+      ],
+      [
+        "_______",
+        "______#",
+        "_______",
+        "______#",
+        "_______"
+      ]
+    ],
+    "name": "Wallmount",
+    "output": {
+      "type": "block",
+      "code": "maltiezcrossbows:wallmount-brass-east"
+    },
+    "code": "crossbows-wallmount-0-maltiezcrossbows-wallmount--metal--east"
+  }
+]
