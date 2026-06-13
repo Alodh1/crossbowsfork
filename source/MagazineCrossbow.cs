@@ -137,6 +137,13 @@ public class MagazineCrossbowClient : RangeWeaponClient
     protected const string InventoryId = "magazine";
     protected int NumberOfBoltsInMagazine = 0;
 
+    private static string GetThirdPersonItemAnimation(string animation)
+    {
+        if (string.IsNullOrEmpty(animation) || animation.EndsWith("-tp", StringComparison.Ordinal)) return animation;
+
+        return animation + "-tp";
+    }
+
     [ActionEventHandler(EnumEntityAction.RightMouseDown, ActionState.Active)]
     protected virtual bool OpenLid(ItemSlot slot, EntityPlayer player, ref int state, ActionEventData eventData, bool mainHand, AttackDirection direction)
     {
@@ -160,7 +167,7 @@ public class MagazineCrossbowClient : RangeWeaponClient
         string openLidAnimation = Stats.OpenLidAnimation;
 
         AnimationBehavior?.Play(mainHand, openLidAnimation, animationSpeed: animationSpeed);
-        TpAnimationBehavior?.Play(mainHand, openLidAnimation, animationSpeed: animationSpeed);
+        TpAnimationBehavior?.Play(mainHand, GetThirdPersonItemAnimation(openLidAnimation), animationSpeed: animationSpeed);
         AimingSystem.StopAiming();
 
         RangedWeaponSystem.SendStatusChange(player, RangedWeaponStatus.EndAiming, mainHand);
@@ -240,7 +247,7 @@ public class MagazineCrossbowClient : RangeWeaponClient
         string loadBoltAnimation = Stats.LoadBoltAnimation;
 
         AnimationBehavior?.Play(mainHand, loadBoltAnimation, animationSpeed: animationSpeed);
-        TpAnimationBehavior?.Play(mainHand, loadBoltAnimation, animationSpeed: animationSpeed);
+        TpAnimationBehavior?.Play(mainHand, GetThirdPersonItemAnimation(loadBoltAnimation), animationSpeed: animationSpeed);
         state = (int)MagazineCrossbowState.Load;
         Api.World.RegisterCallback(_ => LoadBoltCallback(slot, ammoSlot, player), GetActionDelayMs(player, loadBoltAnimation, animationSpeed, 700));
 
@@ -277,7 +284,7 @@ public class MagazineCrossbowClient : RangeWeaponClient
         string closeLidAnimation = Stats.CloseLidAnimation;
 
         AnimationBehavior?.Play(mainHand, closeLidAnimation, animationSpeed: animationSpeed);
-        TpAnimationBehavior?.Play(mainHand, closeLidAnimation, animationSpeed: animationSpeed);
+        TpAnimationBehavior?.Play(mainHand, GetThirdPersonItemAnimation(closeLidAnimation), animationSpeed: animationSpeed);
         state = (int)MagazineCrossbowState.CloseLid;
         Api.World.RegisterCallback(_ => CloseLidCallback(slot, player, mainHand), GetActionDelayMs(player, closeLidAnimation, animationSpeed, 500));
 
@@ -331,7 +338,7 @@ public class MagazineCrossbowClient : RangeWeaponClient
         float animationSpeed = GetAnimationSpeed(player, Stats.ProficiencyStat) * stackStats.ReloadSpeed;
         string shootAnimation = Stats.ShootAnimation;
         AnimationBehavior?.Play(mainHand, shootAnimation, animationSpeed: animationSpeed);
-        TpAnimationBehavior?.Play(mainHand, shootAnimation, animationSpeed: animationSpeed);
+        TpAnimationBehavior?.Play(mainHand, GetThirdPersonItemAnimation(shootAnimation), animationSpeed: animationSpeed);
         state = (int)MagazineCrossbowState.Shoot;
         Api.World.RegisterCallback(_ => ShootCallback(slot, player, mainHand), GetActionDelayMs(player, shootAnimation, animationSpeed, 100, "shoot"));
 
@@ -365,7 +372,7 @@ public class MagazineCrossbowClient : RangeWeaponClient
         float animationSpeed = GetAnimationSpeed(player, Stats.ProficiencyStat) * stackStats.ReloadSpeed;
         string returnAnimation = Stats.ReturnAnimation;
         AnimationBehavior?.Play(mainHand, returnAnimation, animationSpeed: animationSpeed);
-        TpAnimationBehavior?.Play(mainHand, returnAnimation, animationSpeed: animationSpeed);
+        TpAnimationBehavior?.Play(mainHand, GetThirdPersonItemAnimation(returnAnimation), animationSpeed: animationSpeed);
         state = (int)MagazineCrossbowState.Return;
         Api.World.RegisterCallback(_ => ReturnCallback(), GetActionDelayMs(player, returnAnimation, animationSpeed, 500));
 
@@ -648,4 +655,3 @@ public class MagazineCrossbowItem : Item, IHasWeaponLogic, IHasRangedWeaponLogic
         }
     }
 }
-

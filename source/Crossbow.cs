@@ -822,4 +822,3 @@ public sealed class CrossbowItem : Item, IHasWeaponLogic, IHasRangedWeaponLogic,
         }
     }
 }
-
