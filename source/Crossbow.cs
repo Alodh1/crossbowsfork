@@ -604,7 +604,7 @@ public class CrossbowServer : RangeWeaponServer
             Velocity = projectileVelocity,
         };
 
-        _projectileSystem.Spawn(packet.ProjectileId[0], stats, spawnStats, boltSlot.TakeOut(1), slot.Itemstack, shooter);
+        _projectileSystem.SpawnFromWeaponSlot(packet.ProjectileId[0], stats, spawnStats, boltSlot.TakeOut(1), slot, shooter);
 
         boltSlot.MarkDirty();
 

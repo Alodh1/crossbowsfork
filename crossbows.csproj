@@ -3,7 +3,7 @@
   <PropertyGroup>
     <ModName>Crossbows</ModName>
     <ModType>code</ModType>
-    <ModVersion>1.9.13</ModVersion>
+    <ModVersion>1.9.14</ModVersion>
     <ModId>crossbowsfork</ModId>
     <Description>Medieval crossbows</Description>
     <Side>universal</Side>

@@ -453,7 +453,7 @@ public class MagazineCrossbowServer : RangeWeaponServer
             Velocity = GetDirectionWithDispersion(packet.Velocity, [_stats.DispersionMOA[0] * stackStats.DispersionMultiplier, _stats.DispersionMOA[1] * stackStats.DispersionMultiplier]) * _stats.BoltVelocity * stackStats.ProjectileSpeed + playerVelocity,
         };
 
-        _projectileSystem.Spawn(packet.ProjectileId[0], stats, spawnStats, ammo, slot.Itemstack, shooter);
+        _projectileSystem.SpawnFromWeaponSlot(packet.ProjectileId[0], stats, spawnStats, ammo, slot, shooter);
 
         slot.Itemstack.Item.DamageItem(player.Entity.World, player.Entity, slot, 1 + stats.AdditionalDurabilityCost);
         slot.MarkDirty();
