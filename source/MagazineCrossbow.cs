@@ -1,7 +1,5 @@
 using CombatOverhaul;
 using CombatOverhaul.Animations;
-using AnimationItemSlotType = AnimationsLib.ItemSlotType;
-using AnimationIdleAnimationType = AnimationsLib.IdleAnimationType;
 using CombatOverhaul.Implementations;
 using CombatOverhaul.Inputs;
 using CombatOverhaul.RangedSystems;
@@ -352,6 +350,7 @@ public class MagazineCrossbowClient : RangeWeaponClient
         Vector3 targetDirection = AimingSystem.TargetVec;
         targetDirection = ClientAimingSystem.Zeroing(targetDirection, Stats.Zeroing);
 
+        CrossbowSoundHelper.PlayRelease(Api, Stats.ShootAnimation);
         RangedWeaponSystem.SendStatusChange(player, RangedWeaponStatus.SpawnedProjectile, mainHand);
         RangedWeaponSystem.Shoot(slot, 1, new((float)position.X, (float)position.Y, (float)position.Z), new Vector3d(targetDirection.X, targetDirection.Y, targetDirection.Z), true, _ => { });
 
@@ -607,16 +606,6 @@ public class MagazineCrossbowItem : Item, IHasWeaponLogic, IHasRangedWeaponLogic
             return maxDurability;
         }
         return durability;
-    }
-
-    public AnimationRequestByCode? GetIdleAnimation(EntityPlayer player, ItemSlot slot, AnimationItemSlotType slotType, AnimationIdleAnimationType animationType)
-    {
-        return animationType switch
-        {
-            AnimationIdleAnimationType.Idle => IdleAnimation,
-            AnimationIdleAnimationType.Ready => ReadyAnimation,
-            _ => null,
-        };
     }
 
     private AmmoSelector? _ammoSelector;

@@ -3,7 +3,7 @@
   <PropertyGroup>
     <ModName>Crossbows</ModName>
     <ModType>code</ModType>
-    <ModVersion>1.9.14</ModVersion>
+    <ModVersion>1.10.1</ModVersion>
     <ModId>crossbowsfork</ModId>
     <Description>Medieval crossbows</Description>
     <Side>universal</Side>
@@ -20,8 +20,7 @@
 
   <!-- Dependencies -->
   <ItemGroup>
-    <Dependencies Include="overhaulliblegacycompat" Version="1.0.1" />
-    <Dependencies Include="animationslib" Version="0.0.0" />
+    <Dependencies Include="overhaulliblegacycompat" Version="1.2.0" />
   </ItemGroup>
 
   <!-- Project settings -->
@@ -101,6 +100,7 @@
     <Reference Include="$(ExternalLibDir)/**/*.dll" Private="false" Condition="'$(ExternalLibDir)' != ''" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Remove="tests\**\*.cs" />
     <Compile Remove="resources\assets\crossbows\**" />
     <EmbeddedResource Remove="resources\assets\crossbows\**" />
     <None Remove="resources\assets\crossbows\**" />

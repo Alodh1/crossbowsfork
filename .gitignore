@@ -718,6 +718,11 @@ _pack/
 # .NET/generated files
 TestResults/
 GeneratedFiles/
+
+# Crossbows source assets
+!resources/assets/maltiezcrossbows/sounds/
+!resources/assets/maltiezcrossbows/sounds/**/
+!resources/assets/maltiezcrossbows/sounds/**/*.ogg
 *.cache
 # OS files
 Thumbs.db

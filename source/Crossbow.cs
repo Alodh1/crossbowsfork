@@ -1,7 +1,5 @@
 using CombatOverhaul;
 using CombatOverhaul.Animations;
-using AnimationItemSlotType = AnimationsLib.ItemSlotType;
-using AnimationIdleAnimationType = AnimationsLib.IdleAnimationType;
 using CombatOverhaul.Implementations;
 using CombatOverhaul.Inputs;
 using CombatOverhaul.RangedSystems;
@@ -439,6 +437,7 @@ public class CrossbowClient : RangeWeaponClient
 
                     targetDirection = ClientAimingSystem.Zeroing(targetDirection, Stats.Zeroing);
 
+                    CrossbowSoundHelper.PlayRelease(Api, Stats.ReleaseAnimation);
                     RangedWeaponSystem.SendStatusChange(player, RangedWeaponStatus.SpawnedProjectile, mainHand);
 
                     RangedWeaponSystem.Shoot(slot, 1, new((float)position.X, (float)position.Y, (float)position.Z), new Vector3d(targetDirection.X, targetDirection.Y, targetDirection.Z), mainHand, ShootCallback);
@@ -619,7 +618,7 @@ public class CrossbowServer : RangeWeaponServer
     private readonly CrossbowStats _stats;
 }
 
-public sealed class CrossbowItem : Item, IHasWeaponLogic, IHasRangedWeaponLogic, IHasIdleAnimations
+public sealed class CrossbowItem : Item, IHasWeaponLogic, IHasRangedWeaponLogic, IHasMoveAnimations
 {
     public CrossbowClient? ClientLogic { get; private set; }
     public CrossbowServer? ServerLogic { get; private set; }
@@ -770,20 +769,6 @@ public sealed class CrossbowItem : Item, IHasWeaponLogic, IHasRangedWeaponLogic,
             return maxDurability;
         }
         return durability;
-    }
-
-    public AnimationRequestByCode? GetIdleAnimation(EntityPlayer player, ItemSlot slot, AnimationItemSlotType slotType, AnimationIdleAnimationType animationType)
-    {
-        return animationType switch
-        {
-            AnimationIdleAnimationType.Idle => IdleAnimation,
-            AnimationIdleAnimationType.Ready => ReadyAnimation,
-            AnimationIdleAnimationType.Walk => WalkAnimation,
-            AnimationIdleAnimationType.Run => RunAnimation,
-            AnimationIdleAnimationType.Swim => SwimAnimation,
-            AnimationIdleAnimationType.SwimIdle => SwimIdleAnimation,
-            _ => null,
-        };
     }
 
     private AmmoSelector? _ammoSelector;

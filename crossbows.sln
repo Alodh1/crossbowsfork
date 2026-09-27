@@ -5,6 +5,8 @@ VisualStudioVersion = 17.14.36203.30 d17.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "crossbows", "crossbows.csproj", "{0F760C14-F321-4EDD-B8FF-7724E169011F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crossbows.AtlasTests", "tests\Crossbows.AtlasTests\Crossbows.AtlasTests.csproj", "{4C61EC8A-2522-42EE-B262-A423AAE49C1C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{0F760C14-F321-4EDD-B8FF-7724E169011F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0F760C14-F321-4EDD-B8FF-7724E169011F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0F760C14-F321-4EDD-B8FF-7724E169011F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C61EC8A-2522-42EE-B262-A423AAE49C1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C61EC8A-2522-42EE-B262-A423AAE49C1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C61EC8A-2522-42EE-B262-A423AAE49C1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C61EC8A-2522-42EE-B262-A423AAE49C1C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
